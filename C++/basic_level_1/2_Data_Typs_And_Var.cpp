@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 int whole_number = 1;
 double floating_point_nuber = 1.001;
 bool boolen_state = true; // true = 1; false = 0;

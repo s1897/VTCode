@@ -1,4 +1,5 @@
 {
-    "C_Cpp.errorSquiggles": "disabled",
-    "files.autoSave": "onWindowChange"
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true
 }
