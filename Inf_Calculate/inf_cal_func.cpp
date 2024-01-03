@@ -2,7 +2,12 @@
 #include <string>
 // functions
 
-vector<char> string_to_char_vector(const string &string_value)
+int chat_to_int(char input_char)
+{
+    return 0;
+}
+
+vector<int> string_to_char_vector(const string &string_value)
 {
 
     vector<char> char_vector;
@@ -73,4 +78,16 @@ void equalise_length_char_vectors(vector<vector<char>> &separate_char_vector_1, 
             }
         }
     }
+}
+
+vector<vector<char>> add_char_vectors(const vector<vector<char>> &char_vector_1, const vector<vector<char>> &char_vector_2)
+{
+    vector<vector<char>> output_vector = {{}, {'.'}, {}};
+
+    for (int i = 2; i >= 0; i--)
+    {
+        cout << i;
+    }
+
+    return output_vector;
 }
