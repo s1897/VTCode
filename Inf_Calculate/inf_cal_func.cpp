@@ -153,54 +153,40 @@ vector<char> combine_char_vector_at_point(const nested_vector &separate_char_vec
     return char_vector_output;
 }
 
-//
-//
-
 void equalise_length_char_vectors(nested_vector &separate_char_vector_1, nested_vector &separate_char_vector_2)
 {
 
-    bool equalised = false;
-    while (equalised != true)
+    bool equalised_before_point = false;
+    bool equalised_after_point = false;
+
+    while ((equalised_before_point != true) || (equalised_after_point != true))
     {
-        /* code */
+        if (separate_char_vector_1.at(1).size() < separate_char_vector_2.at(1).size())
+        {
+            separate_char_vector_1.at(1).insert(separate_char_vector_1.at(1).begin(), '0');
+        }
+        else if (separate_char_vector_1.at(1).size() > separate_char_vector_2.at(1).size())
+        {
+            separate_char_vector_2.at(1).insert(separate_char_vector_2.at(1).begin(), '0');
+        }
+        else if (separate_char_vector_1.at(1).size() == separate_char_vector_2.at(1).size())
+        {
+            equalised_before_point = true;
+        }
+
+        if (separate_char_vector_1.at(3).size() < separate_char_vector_2.at(3).size())
+        {
+            separate_char_vector_1.at(3).push_back('0');
+        }
+        else if (separate_char_vector_1.at(3).size() > separate_char_vector_2.at(3).size())
+        {
+            separate_char_vector_2.at(3).push_back('0');
+        }
+        else if (separate_char_vector_1.at(3).size() == separate_char_vector_2.at(3).size())
+        {
+            equalised_after_point = true;
+        }
     }
-
-    // for (int i = 0; i < 3; i++)
-    // {
-
-    //     if ((separate_char_vector_1.at(i).size() == 0) && (separate_char_vector_2.at(i).size() == 0))
-    //     {
-    //         separate_char_vector_1.at(i).push_back('0');
-    //         separate_char_vector_2.at(i).push_back('0');
-    //     }
-
-    //     while (separate_char_vector_1.at(i).size() != separate_char_vector_2.at(i).size())
-    //     {
-    //         if (separate_char_vector_1.at(i).size() < separate_char_vector_2.at(i).size())
-    //         {
-    //             if (i == 0)
-    //             {
-    //                 separate_char_vector_1.at(i).insert(separate_char_vector_1.at(i).begin(), '0');
-    //             }
-    //             else if (i == 2)
-    //             {
-    //                 separate_char_vector_1.at(i).push_back('0');
-    //             }
-    //         }
-
-    //         if (separate_char_vector_1.at(i).size() > separate_char_vector_2.at(i).size())
-    //         {
-    //             if (i == 0)
-    //             {
-    //                 separate_char_vector_2.at(i).insert(separate_char_vector_2.at(i).begin(), '0');
-    //             }
-    //             else if (i == 2)
-    //             {
-    //                 separate_char_vector_2.at(i).push_back('0');
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 // ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀

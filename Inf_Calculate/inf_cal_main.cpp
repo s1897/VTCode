@@ -31,9 +31,22 @@ void print_vectors_cluster(vector<vector<char>> h)
 
 int main()
 {
-    string st = "-234.54345";
+    string st = "-5746.12";
+    string st1 = "-1245456.7897896";
+
     // print_vectors(string_to_char_vector(st));
-    print_vectors_cluster(separate_char_vector_at_point(string_to_char_vector(st)));
+    vector<vector<char>> l1 = separate_char_vector_at_point(string_to_char_vector(st));
+    vector<vector<char>> l2 = separate_char_vector_at_point(string_to_char_vector(st1));
+    print_vectors_cluster(l1);
+    cout << endl;
+    print_vectors_cluster(l2);
+
+    equalise_length_char_vectors(l1, l2);
+
+    cout << endl;
+    print_vectors_cluster(l1);
+    cout << endl;
+    print_vectors_cluster(l2);
 }
 
 // string v1;

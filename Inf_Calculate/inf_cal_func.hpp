@@ -20,6 +20,13 @@ using nested_vector = vector<vector<char>>;
 
 void bodmas();
 
+// B	[{( )}]	Brackets
+// O	**2 ^2	**0.5 ^0.5 Order of Powers or Roots
+// D	/	Division
+// M	*	Multiplication
+// A	+	Addition
+// S	-	Subtraction
+
 // ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 //  ████  ████  █    █ █   █ █████ ████  █████ █████ ████   ████
 // █     █    █ ██   █ █   █ █     █   █   █   █     █   █ █
