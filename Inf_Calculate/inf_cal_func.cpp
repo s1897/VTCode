@@ -10,59 +10,12 @@
 //  ████  █     █████ █   █ █   █   █   ███  ████  █   ██ ████      █   █  ███  █████ █████ ████
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-nested_string_vector string_to_nested_string_vector(string imput_string)
-{
-    // B	[{( )}]	Brackets
-    // O	**2 ^2	**0.5 ^0.5 Order of Powers or Roots
-    // D	/	Division
-    // M	*	Multiplication
-    // A	+	Addition
-    // S	-	Subtraction
-
-    nested_string_vector output_vector = {};
-    int position_nested_string_vector = 0;
-    int bracket_conter;
-
-    using it_string = string::const_iterator;
-    it_string it = imput_string.begin();
-
-    while (it != imput_string.end())
-    {
-        // int i = 0;
-        // while (*it == '(')
-        // {
-        //     i++;
-        //     if (*(it + i) == ')')
-        //     {
-        //         break;
-        //     }
-        //     cout << *(it + i) << "--" << i endl;
-        // }
-
-        // if (*it == '(')
-        // {
-        //     in_brackets = true;
-        //     output_vector.push_back({""});
-        // }
-        // else if (*it == ')')
-        // {
-        //     in_brackets = false;
-        //     position_nested_string_vector++;
-        //     output_vector.push_back({""});
-        // }
-        // else if (in_brackets == true)
-        // {
-        //     output_vector.at(position_nested_string_vector)[0] += *it;
-        // }
-        // else if (in_brackets == false)
-        // {
-        //     output_vector.at(position_nested_string_vector)[0] += *it;
-        // }
-
-        it++;
-    }
-    return output_vector;
-}
+//     // B	[{( )}]	Brackets
+//     // O	**2 ^2	**0.5 ^0.5 Order of Powers or Roots
+//     // D	/	Division
+//     // M	*	Multiplication
+//     // A	+	Addition
+//     // S	-	Subtraction
 
 void bodmas(string math_string)
 {

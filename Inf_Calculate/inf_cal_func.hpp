@@ -7,7 +7,6 @@
 
 using namespace std;
 using nested_char_vector = vector<vector<char>>;
-using nested_string_vector = vector<vector<string>>;
 
 // declare fuctions
 
@@ -18,8 +17,6 @@ using nested_string_vector = vector<vector<string>>;
 // █    █ █     █     █   █ █   █   █    █  █    █ █  █ █     █     █   █ █   █ █     █         █
 //  ████  █     █████ █   █ █   █   █   ███  ████  █   ██ ████      █   █  ███  █████ █████ ████
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-nested_string_vector string_to_nested_string_vector(string imput_string);
 
 void bodmas(string math_string);
 
