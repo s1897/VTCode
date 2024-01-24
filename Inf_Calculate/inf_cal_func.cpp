@@ -10,7 +10,61 @@
 //  ████  █     █████ █   █ █   █   █   ███  ████  █   ██ ████      █   █  ███  █████ █████ ████
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-void bodmas()
+nested_string_vector string_to_nested_string_vector(string imput_string)
+{
+    // B	[{( )}]	Brackets
+    // O	**2 ^2	**0.5 ^0.5 Order of Powers or Roots
+    // D	/	Division
+    // M	*	Multiplication
+    // A	+	Addition
+    // S	-	Subtraction
+
+    nested_string_vector output_vector = {};
+    int position_nested_string_vector = 0;
+    int bracket_conter;
+
+    using it_string = string::const_iterator;
+    it_string it = imput_string.begin();
+
+    while (it != imput_string.end())
+    {
+        // int i = 0;
+        // while (*it == '(')
+        // {
+        //     i++;
+        //     if (*(it + i) == ')')
+        //     {
+        //         break;
+        //     }
+        //     cout << *(it + i) << "--" << i endl;
+        // }
+
+        // if (*it == '(')
+        // {
+        //     in_brackets = true;
+        //     output_vector.push_back({""});
+        // }
+        // else if (*it == ')')
+        // {
+        //     in_brackets = false;
+        //     position_nested_string_vector++;
+        //     output_vector.push_back({""});
+        // }
+        // else if (in_brackets == true)
+        // {
+        //     output_vector.at(position_nested_string_vector)[0] += *it;
+        // }
+        // else if (in_brackets == false)
+        // {
+        //     output_vector.at(position_nested_string_vector)[0] += *it;
+        // }
+
+        it++;
+    }
+    return output_vector;
+}
+
+void bodmas(string math_string)
 {
 }
 
@@ -107,9 +161,9 @@ string char_vector_to_string(const vector<char> &char_vector)
 //   █   █████  ████   █    ████  █   █     █    █  ████  ████  ███ █     ███ █████ █   █
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-nested_vector separate_char_vector_at_point(const vector<char> &char_vector)
+nested_char_vector separate_char_vector_at_point(const vector<char> &char_vector)
 {
-    nested_vector separate_char_vector = {{}, {}, {}, {}};
+    nested_char_vector separate_char_vector = {{}, {}, {}, {}};
     int position_char_vector = 0;
 
     using it_char_vector = vector<char>::const_iterator;
@@ -138,7 +192,7 @@ nested_vector separate_char_vector_at_point(const vector<char> &char_vector)
     return separate_char_vector;
 }
 
-vector<char> combine_char_vector_at_point(const nested_vector &separate_char_vector)
+vector<char> combine_char_vector_at_point(const nested_char_vector &separate_char_vector)
 {
     vector<char> char_vector_output;
 
@@ -153,7 +207,7 @@ vector<char> combine_char_vector_at_point(const nested_vector &separate_char_vec
     return char_vector_output;
 }
 
-void equalise_length_char_vectors(nested_vector &separate_char_vector_1, nested_vector &separate_char_vector_2)
+void equalise_length_char_vectors(nested_char_vector &separate_char_vector_1, nested_char_vector &separate_char_vector_2)
 {
 
     bool equalised_before_point = false;
@@ -197,18 +251,18 @@ void equalise_length_char_vectors(nested_vector &separate_char_vector_1, nested_
 //   █   █████  ████   █    ████  █   █      ████  █     █████ █   █ █   █   █   █████ █   █ ████
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-nested_vector add_char_vectors(const nested_vector &char_vector_1, const nested_vector &char_vector_2)
+nested_char_vector add_char_vectors(const nested_char_vector &char_vector_1, const nested_char_vector &char_vector_2)
 {
     // <-- input =  {{'9','9','9'},{'.'},{'9','9','9'}}
     // <--          {{'9','9','9'},{'.'},{'9','9','1'}}
 
     // --> output ={{'1','9','9','9'},{'.'},{'9','9','0'}}
 
-    nested_vector output_vector = {{}, {'.'}, {}};
+    nested_char_vector output_vector = {{}, {'.'}, {}};
     bool remainder = false;
 
-    using vvc_reverse_iterator = nested_vector::reverse_iterator;
-    using vvc_const_reverse_iterator = nested_vector::const_reverse_iterator;
+    using vvc_reverse_iterator = nested_char_vector::reverse_iterator;
+    using vvc_const_reverse_iterator = nested_char_vector::const_reverse_iterator;
 
     using vc_reverse_iterator = vector<char>::reverse_iterator;
     using vc_const_reverse_iterator = vector<char>::const_reverse_iterator;
@@ -275,9 +329,9 @@ nested_vector add_char_vectors(const nested_vector &char_vector_1, const nested_
     return output_vector;
 }
 
-nested_vector sub_char_vectors(const nested_vector &char_vector_1, const nested_vector &char_vector_2)
+nested_char_vector sub_char_vectors(const nested_char_vector &char_vector_1, const nested_char_vector &char_vector_2)
 {
-    return nested_vector();
+    return nested_char_vector();
 }
 
 // ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -291,8 +345,8 @@ nested_vector sub_char_vectors(const nested_vector &char_vector_1, const nested_
 string add_two_strings(const string &string_1, const string &string_2)
 {
 
-    nested_vector char_vector_1 = separate_char_vector_at_point(string_to_char_vector(string_1));
-    nested_vector char_vector_2 = separate_char_vector_at_point(string_to_char_vector(string_2));
+    nested_char_vector char_vector_1 = separate_char_vector_at_point(string_to_char_vector(string_1));
+    nested_char_vector char_vector_2 = separate_char_vector_at_point(string_to_char_vector(string_2));
 
     equalise_length_char_vectors(char_vector_1, char_vector_2);
 
@@ -301,8 +355,8 @@ string add_two_strings(const string &string_1, const string &string_2)
 
 string sub_two_string(const string &string_1, const string &string_2)
 {
-    nested_vector char_vector_1 = separate_char_vector_at_point(string_to_char_vector(string_1));
-    nested_vector char_vector_2 = separate_char_vector_at_point(string_to_char_vector(string_2));
+    nested_char_vector char_vector_1 = separate_char_vector_at_point(string_to_char_vector(string_1));
+    nested_char_vector char_vector_2 = separate_char_vector_at_point(string_to_char_vector(string_2));
 
     equalise_length_char_vectors(char_vector_1, char_vector_2);
 

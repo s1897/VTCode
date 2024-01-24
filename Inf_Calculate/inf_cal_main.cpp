@@ -16,12 +16,12 @@ void print_vectors(vector<char> h)
     cout << "'}";
 }
 
-void print_vectors_cluster(vector<vector<char>> h)
+void print_vectors_cluster(vector<vector<string>> h)
 {
-    for (vector<char> i : h)
+    for (vector<string> i : h)
     {
         cout << "{ ";
-        for (char l : i)
+        for (string l : i)
         {
             cout << l << " ";
         }
@@ -31,23 +31,29 @@ void print_vectors_cluster(vector<vector<char>> h)
 
 int main()
 {
-    string st = "-5746.12";
-    string st1 = "-1245456.7897896";
+    string ts = "(4+2*3)^2-(4^0.5-5/2)+2";
 
-    // print_vectors(string_to_char_vector(st));
-    vector<vector<char>> l1 = separate_char_vector_at_point(string_to_char_vector(st));
-    vector<vector<char>> l2 = separate_char_vector_at_point(string_to_char_vector(st1));
-    print_vectors_cluster(l1);
-    cout << endl;
-    print_vectors_cluster(l2);
+    nested_string_vector l = string_to_nested_string_vector(ts);
 
-    equalise_length_char_vectors(l1, l2);
-
-    cout << endl;
-    print_vectors_cluster(l1);
-    cout << endl;
-    print_vectors_cluster(l2);
+    print_vectors_cluster(l);
 }
+// string st = "-5746.12";
+// string st1 = "-1245456.7897896";
+
+// print_vectors(string_to_char_vector(st));
+//     vector<vector<char>> l1 = separate_char_vector_at_point(string_to_char_vector(st));
+//     vector<vector<char>> l2 = separate_char_vector_at_point(string_to_char_vector(st1));
+//     print_vectors_cluster(l1);
+//     cout << endl;
+//     print_vectors_cluster(l2);
+
+//     equalise_length_char_vectors(l1, l2);
+
+//     cout << endl;
+//     print_vectors_cluster(l1);
+//     cout << endl;
+//     print_vectors_cluster(l2);
+// }
 
 // string v1;
 // string v2;
