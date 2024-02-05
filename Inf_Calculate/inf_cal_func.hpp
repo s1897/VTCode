@@ -18,7 +18,7 @@ using nested_char_vector = vector<vector<char>>;
 //  ████  █     █████ █   █ █   █   █   ███  ████  █   ██ ████      █   █  ███  █████ █████ ████
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-void bodmas(string math_string);
+nested_char_vector bodmas(const vector<char> &char_vector);
 
 // B	[{( )}]	Brackets
 // O	^2 ^2	^0.5 ^0.5 Order of Powers or Roots
@@ -58,8 +58,10 @@ int char_to_int(char input_char);
 // int to char
 char int_to_char(char input_int);
 
-// convert string to char vector
 vector<char> string_to_char_vector(const string &string_value);
+
+// convert string to char vector
+// vector<char> string_to_char_vector(const string &string_value);
 // <-- imput  =  "123.123"
 //            =  "-123.123"
 // --> output =  {'+',1','2','3','.','1','2','3'}

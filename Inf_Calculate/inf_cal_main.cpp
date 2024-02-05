@@ -16,12 +16,12 @@ void print_vectors(vector<char> h)
     cout << "'}";
 }
 
-void print_vectors_cluster(vector<vector<string>> h)
+void print_vectors_cluster(vector<vector<char>> h)
 {
-    for (vector<string> i : h)
+    for (vector<char> i : h)
     {
         cout << "{ ";
-        for (string l : i)
+        for (char l : i)
         {
             cout << l << " ";
         }
@@ -33,9 +33,10 @@ int main()
 {
     string ts = "(4+2*3)^2-(4^0.5-5/2)+2";
 
-    nested_string_vector l = string_to_nested_string_vector(ts);
+    vector<char> l = string_to_char_vector(ts);
+    print_vectors(l);
 
-    print_vectors_cluster(l);
+    bodmas(l);
 }
 // string st = "-5746.12";
 // string st1 = "-1245456.7897896";

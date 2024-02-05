@@ -11,14 +11,95 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 //     // B	[{( )}]	Brackets
-//     // O	**2 ^2	**0.5 ^0.5 Order of Powers or Roots
+//     // O	^2	^0.5 Order of Powers or Roots
 //     // D	/	Division
 //     // M	*	Multiplication
 //     // A	+	Addition
 //     // S	-	Subtraction
 
-void bodmas(string math_string)
+/*
+{'(','4','+','2','*','3',')','^','2','-','(','4','^','0','.','5','-','5','/','2',')','+','2'}
+
+(4+2*3)^2-(4^0.5-5/2)+2 = 102.5
+
+1.
+(4+2*3)^2-(4^0.5-5/2)+2 -> (4+2*3) -> (4+6)^2-(4^0.5-5/2)+2
+
+2.
+(4+6)^2-(4^0.5-5/2)+2 -> (4+6) -> (10)^2-(4^0.5-5/2)+2
+
+3.
+(10)^2-(4^0.5-5/2)+2 -> (10) -> 10^2-(4^0.5-5/2)+2
+
+4.
+(10)^2-(4^0.5-5/2)+2 -> 10^2 -> 100-(4^0.5-5/2)+2
+
+5.
+100-(4^0.5-5/2)+2 -> 100-(4^0.5 -> 100-(2-5/2)+2
+
+6.
+100-(2-5/2)+2 -> 100-(2-5/2) -> 100-(2-2.5)+2
+
+7.
+00-(2-2.5)+2 = 100-(2-2.5) = 100-(-0.5)+2
+
+8.
+100-(-0.5)+2 = 100-(-0.5) = 100--0.5+2
+
+9.
+100--0.5+2 = 100--0.5 = 100.5+2
+
+10.
+100.5+2 = 100.5+2 = 102.5
+
+
+
+
 {
+{'('},
+{'4'},
+'+',
+'2',
+'*',
+'3',
+')',
+'^',
+'2',
+'-',
+'(',
+'4',
+'^',
+'0','.','5',
+'-',
+'5',
+'/',
+'2',
+')',
+'+',
+'2'
+}
+
+
+
+*/
+
+nested_char_vector bodmas(const vector<char> &char_vector)
+{
+    nested_char_vector bodmas;
+    int brackets = 0;
+
+    using it_string = vector<char>::const_iterator;
+    it_string it = char_vector.begin();
+
+    while (it != char_vector.end())
+    {
+
+        it++;
+    }
+
+    cout << brackets << endl;
+
+    return bodmas;
 }
 
 // ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
@@ -41,60 +122,76 @@ char int_to_char(char input_int)
 
 vector<char> string_to_char_vector(const string &string_value)
 {
-
     vector<char> char_vector;
-    bool point = false;
 
     using it_string = string::const_iterator;
     it_string it = string_value.begin();
 
-    if (string_value.begin() == string_value.end())
-    {
-        char_vector = {'+', '0', '.', '0'};
-    }
-
     while (it != string_value.end())
     {
-
-        if (it == string_value.begin())
-        {
-            if (*it != '+' && *it != '-')
-            {
-                char_vector.push_back('+');
-            }
-        }
-
-        if (*it == '.')
-        {
-            point = true;
-        }
-
         char_vector.push_back(*it);
-
-        if ((it + 1) == (string_value.end()))
-        {
-            if ((*(char_vector.end() - 1) != '.') && (point == false))
-            {
-                char_vector.push_back('.');
-                char_vector.push_back('0');
-            }
-
-            else if ((*(char_vector.end() - 1) == '.') && (point == true))
-            {
-                char_vector.push_back('0');
-            }
-        }
-
-        if (((char_vector[0] == '+') || (char_vector[0] == '-')) && (char_vector[1] == '.'))
-        {
-            char_vector.insert(char_vector.begin() + 1, '0');
-        }
-
         it++;
     }
 
     return char_vector;
 }
+
+// vector<char> string_to_char_vector(const string &string_value)
+// {
+
+//     vector<char> char_vector;
+//     bool point = false;
+
+//     using it_string = string::const_iterator;
+//     it_string it = string_value.begin();
+
+//     if (string_value.begin() == string_value.end())
+//     {
+//         char_vector = {'+', '0', '.', '0'};
+//     }
+
+//     while (it != string_value.end())
+//     {
+
+//         if (it == string_value.begin())
+//         {
+//             if (*it != '+' && *it != '-')
+//             {
+//                 char_vector.push_back('+');
+//             }
+//         }
+
+//         if (*it == '.')
+//         {
+//             point = true;
+//         }
+
+//         char_vector.push_back(*it);
+
+//         if ((it + 1) == (string_value.end()))
+//         {
+//             if ((*(char_vector.end() - 1) != '.') && (point == false))
+//             {
+//                 char_vector.push_back('.');
+//                 char_vector.push_back('0');
+//             }
+
+//             else if ((*(char_vector.end() - 1) == '.') && (point == true))
+//             {
+//                 char_vector.push_back('0');
+//             }
+//         }
+
+//         if (((char_vector[0] == '+') || (char_vector[0] == '-')) && (char_vector[1] == '.'))
+//         {
+//             char_vector.insert(char_vector.begin() + 1, '0');
+//         }
+
+//         it++;
+//     }
+
+//     return char_vector;
+// }
 
 string char_vector_to_string(const vector<char> &char_vector)
 {
