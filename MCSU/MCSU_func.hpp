@@ -21,12 +21,12 @@ using namespace std;
 // ████  █████  ████ █████ █   █ █   █ █████     █      ███   ████   █   ███  ████  █   ██ ████
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-void GET_VERSION_MANIFEST();
+void GET_FILE(string URL, string FILE_NAME, string PATH = ".\\");
 
-void GET_FILE(string URL, string FILE_NAME);
+string GET_LAST_VERSION(string VERSION_TYPE = "release", string FILE_NAME = "version_manifest.json");
 
-string GET_LAST_VERSION(string VERSION_TYPE = "release");
+// string GET_JSON(string VERSION_NUMBER);
 
-string GET_JSON(string VERSION_NUMBER);
+string GET_LINKS(string FILE_NAME, string FILE_TYPE, string OPEN_FILE_NAME);
 
 #endif
